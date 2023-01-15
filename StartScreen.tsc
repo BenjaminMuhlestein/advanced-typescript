@@ -1,0 +1,5 @@
+import * as $ from 'jquery';
+
+$("#Button").click(function () {
+    $("#GameCanvas").show();
+});

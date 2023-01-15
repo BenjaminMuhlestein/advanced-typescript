@@ -1,0 +1,25 @@
+const EL_img: HTMLElement = document.querySelector("#dog");
+const pos: {x: number, y: number} = {x: 0, y: 0};
+
+document.addEventListener("keydown", (ev: KeyboardEvent) => {
+  const dir: string | undefined = (ev.key.match(/(?<=^Arrow)\w+/)||[])[0];
+  if (!dir) return; // Not an arrow key.
+  
+  ev.preventDefault(); // Prevent Browser scroll if overflow
+
+  switch (dir) {
+    case 'Left':
+      pos.x -= 70;
+      break;
+    case 'Right':
+      pos.x += 70;
+      break;
+    case 'Up':
+      pos.y -= 70;
+      break;
+    case 'Down':
+      pos.y += 70;
+      break;
+  }
+  EL_img.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+});
